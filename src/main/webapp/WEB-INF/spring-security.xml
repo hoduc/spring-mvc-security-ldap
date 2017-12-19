@@ -13,12 +13,24 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans
    		<logout />
   	</http>
   	
-  	<authentication-manager>
+  	<!-- <authentication-manager>
 	    <authentication-provider>
 	      <user-service>
 	        <user name="jimi" password="{noop}jimispassword" authorities="ROLE_USER, ROLE_ADMIN" />
 	        <user name="bob" password="{noop}bobspassword" authorities="ROLE_USER" />
 	      </user-service>
 	    </authentication-provider>
-  </authentication-manager>
+  	</authentication-manager> -->
+  
+  <authentication-manager>
+    <ldap-authentication-provider
+      user-search-base="ou=people"
+      user-search-filter="(uid={0})"
+      group-search-base="ou=groups"
+      group-search-filter="uniqueMember={0}">
+      	<password-compare password-attribute="userPassword"/>
+    </ldap-authentication-provider>
+</authentication-manager>
+    
+<ldap-server root="dc=springframework,dc=org" ldif="users.ldif"/>
 </beans:beans>

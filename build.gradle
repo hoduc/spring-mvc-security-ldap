@@ -35,13 +35,16 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
-    // compile("org.springframework.boot:spring-boot-starter-thymeleaf")
     compile 'org.springframework:spring-core:5.0.2.RELEASE'
     compile 'org.springframework:spring-web:5.0.2.RELEASE'
     compile 'org.springframework:spring-webmvc:5.0.2.RELEASE'
     compile 'org.springframework.security:spring-security-config:5.0.0.RELEASE'
     compile 'org.springframework.security:spring-security-web:5.0.0.RELEASE'
     compile 'org.springframework.security:spring-security-ldap:5.0.0.RELEASE'
+    // compile 'org.apache.directory.server:apacheds-server-jndi:2.0.0-M24'
+    compile 'ch.qos.logback:logback:0.5'
+    compile group: 'org.apache.directory.server', name: 'apacheds-all', version: '1.5.5' //spring currently only support 1.5.5
+    compile 'org.slf4j:slf4j-simple:1.7.25'
     
     // tag::security[]
     // compile("org.springframework.boot:spring-boot-starter-security")
